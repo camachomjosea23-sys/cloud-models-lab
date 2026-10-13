@@ -35,6 +35,7 @@ const server = http.createServer((request, response) => {
   }));
 });
 
-server.listen(port, "0.0.0.0", () => {
-  console.log(`Servidor iniciado en puerto ${port}, ambiente ${environment}`);
-});
+const host = process.env.HOST || "127.0.0.1"; 
+server.listen(port, host, () => {
+  console.log(`Servidor iniciado en ${host}:${port}, ambiente ${environment}`);
+}); 
